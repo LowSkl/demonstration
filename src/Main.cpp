@@ -181,7 +181,9 @@ int main()
         lastTime = currentTime;
 
         if (isDragging) {
-            sphereDistance += input.scroll / 100;
+            sphereDistance += input.scroll;
+            input.scroll = 0;
+
             sphereDistance = glm::clamp(sphereDistance, 1.0f, 10.0f);
 
             glm::vec3 cameraForward = camera.get_front();
